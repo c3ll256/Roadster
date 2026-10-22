@@ -12,23 +12,147 @@
           "target": "pendant",
           "order": 0,
           "path": "design/roadster-pendant/source/parts/pendant/000-pendant.py",
-          "sha256": "710442814507a19d63d8d98d4d3d50508cf0d42c21f75c914ea91681b09370e0"
+          "sha256": "7da323b177f29f109d4da396e569b2c893ed8b0d76537d8d8bdd656a4e07c5c2"
         }
       ],
       "dependencies": []
+    },
+    {
+      "id": "merged",
+      "label": "merged",
+      "cells": [
+        {
+          "id": "merged",
+          "target": "merged",
+          "order": 0,
+          "path": "design/roadster-pendant/source/parts/merged/000-merged.py",
+          "sha256": "0b2efd4dbced907b4e878466c3157cd6b7e1e7be45e378603db40cb52ab69ba1"
+        }
+      ],
+      "dependencies": [
+        "pendant"
+      ]
     }
   ],
   "objects": [
     {
-      "id": "pendant",
+      "id": "border",
       "target": "pendant",
-      "label": "RDSTR 车牌挂坠",
+      "label": "深蓝车牌细边",
       "material": "petg",
       "kind": "generated",
-      "shapeHash": "157ae800ea816917e8e2d3ddde6ad631b1422374c4850cf9a779fd9c061382be",
+      "shapeHash": "0f773a64642bc37521a4415ce1323c53beac29535c7d4c848261319809edb12d",
       "transform": {
         "positionMm": [
           0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "hangzhou",
+      "target": "pendant",
+      "label": "红色手写 Hangzhou",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "ffd772d7865cec2fead4fcde6e9c556380911a8a5cc1c39348fca020d83a2ebf",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "pendant",
+      "target": "pendant",
+      "label": "银灰车牌主体",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "ae89990674b9fca3b5c459c281d42c8b6a6c3af339c297334d4a6f233be64025",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "rdstr",
+      "target": "pendant",
+      "label": "深蓝 RDSTR",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "e07c9644dce3533b08e9e029b3d71705086f1e71deeecc9177174dea28cc9f90",
+      "transform": {
+        "positionMm": [
+          0,
+          0,
+          0
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "rotationOrder": "XYZ",
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "datums": []
+    },
+    {
+      "id": "merged",
+      "target": "merged",
+      "label": "合并版挂坠",
+      "material": "petg",
+      "kind": "generated",
+      "shapeHash": "c51c858574c27ab9186ef9cd23786e9c23c3910e228ebbe1ca50edeb9018f5d3",
+      "transform": {
+        "positionMm": [
+          90,
           0,
           0
         ],
@@ -49,7 +173,7 @@
   ],
   "assets": [],
   "fits": [],
-  "updatedAt": "2026-10-20T16:18:32.841Z",
+  "updatedAt": "2026-10-22T10:39:15.675Z",
   "parameters": {
     "pendant": {
       "pendant_length": 72,
@@ -58,18 +182,31 @@
       "pendant_corner_radius": 3,
       "pendant_relief_height": 0.6,
       "pendant_border_inset": 0.7,
-      "pendant_text_width": 42.14,
-      "pendant_text_height": 15.5,
+      "pendant_text_width": 33.712,
+      "pendant_text_height": 12.4,
       "pendant_eye_outer_diameter": 8,
       "pendant_cord_hole_diameter": 4,
       "pendant_eye_outward_offset": 2,
-      "pendant_letter_gap": 0.8379121789560895,
+      "pendant_letter_gap": 0.6703297431648716,
       "pendant_groove_depth": 0.45,
       "pendant_groove_outer_radius": 0.35,
       "pendant_groove_bottom_radius": 0.45,
       "pendant_groove_inner_radius": 1.2,
       "pendant_text_top_edge_radius": 0.45,
-      "pendant_eye_root_radius": 2
+      "pendant_eye_root_radius": 2,
+      "pendant_border_color_width": 0.7,
+      "pendant_border_color_depth": 0.6,
+      "pendant_text_center_y": -3.8,
+      "pendant_header_height": 7.15,
+      "pendant_header_center_y": 8.8,
+      "pendant_header_relief_height": 0.4,
+      "pendant_corner_recess_diameter": 1.8,
+      "pendant_corner_recess_depth": 0.5,
+      "pendant_corner_recess_center_x": 26,
+      "pendant_corner_recess_center_y": 13.5
+    },
+    "merged": {
+      "merged_scale": 1
     }
   }
 }

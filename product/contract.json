@@ -2,7 +2,7 @@
   "version": 2,
   "artifact_level": "standalone_part",
   "deliverable_intent": "printable_part",
-  "summary": "参考RDSTR车牌的圆角浮雕挂坠，左侧一体挂绳孔",
+  "summary": "RDSTR / Hangzhou车牌挂坠：三色分件版与旁置的单实体合并版",
   "required_interfaces": [
     {
       "id": "cord_eye",
@@ -16,32 +16,39 @@
     {
       "id": "plate_front",
       "source": "user_requested",
-      "description": "RDSTR车牌正面外观参考",
-      "path": "product/references/uploads/20261020T083242806Z-1-ishot-2026-10-20-4-27-20.png"
+      "description": "RDSTR车牌正面外观参考。原上传图当前缺失；相应轮廓已保存在既有参数化模型中，沿用既有模型的轮廓。"
     },
     {
       "id": "plate_alternate",
       "source": "user_requested",
-      "description": "RDSTR车牌细边框与窄高字形参考",
-      "path": "product/references/uploads/20261020T083242806Z-2-ishot-2026-10-20-4-27-36.png"
+      "description": "RDSTR车牌细边框与窄高字形参考。原上传图当前缺失；相应轮廓已保存在既有参数化模型中，沿用既有模型的轮廓。"
     },
     {
       "id": "rdstr_lettering",
       "source": "user_requested",
-      "description": "高清RDSTR粗笔画及圆润浮雕参考，以此图作为文字外观依据",
-      "path": "product/references/uploads/20261020T085619022Z-1-rdstr.png"
+      "description": "高清RDSTR粗笔画及圆润浮雕参考，以此图作为文字外观依据。原上传图当前缺失；相应轮廓已保存在既有参数化模型中，沿用既有模型的轮廓。"
     },
     {
       "id": "plate_spacing",
       "source": "user_requested",
-      "description": "车牌整体宽高比例与文字四周留白参考",
-      "path": "product/references/uploads/20261020T152132223Z-1-image.png"
+      "description": "车牌整体宽高比例与文字四周留白参考。原上传图当前缺失；相应轮廓已保存在既有参数化模型中，沿用既有模型的轮廓。"
     },
     {
       "id": "eye_root_transition",
       "source": "user_requested",
-      "description": "绿色线条标注挂环与牌身连接处两侧的圆弧过渡",
-      "path": "product/references/uploads/20261020T161731756Z-1-mark-1.png"
+      "description": "绿色线条标注挂环与牌身连接处两侧的圆弧过渡。原上传图当前缺失；相应轮廓已保存在既有参数化模型中，沿用既有模型的轮廓。"
+    },
+    {
+      "id": "hangzhou_script_style",
+      "source": "user_requested",
+      "description": "用户提供的California红色笔刷连笔字，作为Hangzhou手写字样风格参考，不复制California文字",
+      "path": "product/references/uploads/20261022T102544886Z-1-cleanshot-2026-10-22-at-18-24-40-2x.png"
+    },
+    {
+      "id": "four_corner_recesses",
+      "source": "user_requested",
+      "description": "左上圆孔位置标注；以车牌本体中线为镜像轴在四角对称设置0.5 mm深圆形盲孔",
+      "path": "product/references/uploads/20261022T103154939Z-1-mark-1.png"
     }
   ],
   "cad": {
@@ -50,7 +57,7 @@
       {
         "role": "pendant",
         "design_id": "roadster-pendant",
-        "description": "车牌挂坠，浮雕RDSTR及左侧挂耳",
+        "description": "同一场景并排交付三色分件挂坠与单实体合并挂坠，均含两行浮雕字、圆弧槽、挂孔和四角盲孔",
         "delivery_target": "printable_part",
         "required_formats": [
           "step"
@@ -63,7 +70,9 @@
           "plate_alternate",
           "rdstr_lettering",
           "plate_spacing",
-          "eye_root_transition"
+          "eye_root_transition",
+          "hangzhou_script_style",
+          "four_corner_recesses"
         ]
       }
     ]

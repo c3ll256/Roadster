@@ -1,0 +1,114 @@
+{
+  "designId": "roadster-pendant",
+  "revision": "ad154c048e83d70d9b7d3b61dfe7b63c1087bc7214338c2fda456e163996a316",
+  "schemaVersion": 3,
+  "exportId": "export-af02d7544c5fb57e10f8e121f15ecdc9",
+  "generatedAt": "2026-10-22T10:39:15.675Z",
+  "designSha256": "fea1c6412ba08775ec1af2cc16211fd253573b55fd76e03e3d90f9dd410f5f90",
+  "role": "pendant",
+  "stateHash": "157a3c6ca0326f6fa2798a2b246a73416bec1d286274f462621ea918542b274c",
+  "stateManifest": {
+    "schemaVersion": 4,
+    "designId": "roadster-pendant",
+    "role": "pendant",
+    "design": {
+      "revision": "ad154c048e83d70d9b7d3b61dfe7b63c1087bc7214338c2fda456e163996a316",
+      "designSha256": "00fea012c84f2760b90d6271a376673becc58cc0cb09aaabdaf58fe413e132bf",
+      "manifestSha256": "f7e58da1972dd6ef1f6e175e64817ab728188b034155c47f3e1d364b80d1d26e",
+      "modelSha256": "6334eb01e488a9be9e2efda0ac1e4ebe5df177abb269d053d4d59fedb58e7d9a",
+      "pcbReleases": []
+    },
+    "brief": {
+      "path": "design/roadster-pendant/README.md",
+      "sha256": "0f54d3e1336cff8f43a55e795c9aef67924254a82e1791e2eb6c893a488f2faa"
+    },
+    "requirement": {
+      "artifactContractPath": "product/contract.json",
+      "artifactContractSha256": "d6376e9b8e35686f84745bf3650d1fa926a72fb8d94170dbf76d2a3075283998",
+      "designRequirementSha256": "df94d858526fab039ca272b3a47688a69d504e03099e74159bff041d35850beb",
+      "inputs": [
+        {
+          "role": "external-reference",
+          "id": "four_corner_recesses",
+          "path": "product/references/uploads/20261022T103154939Z-1-mark-1.png",
+          "sha256": "68798801e49ceb0832605c412c8ca7f68183ff6e08debdf7f66af48bcc5471b5",
+          "sizeBytes": 335349
+        },
+        {
+          "role": "external-reference",
+          "id": "hangzhou_script_style",
+          "path": "product/references/uploads/20261022T102544886Z-1-cleanshot-2026-10-22-at-18-24-40-2x.png",
+          "sha256": "890ba45eb964d46e5498eac8f2e053fc9892fda5517610e05d904f02a72265b5",
+          "sizeBytes": 158278
+        }
+      ]
+    },
+    "delivery": {
+      "target": "printable_part",
+      "formats": [
+        "step"
+      ]
+    },
+    "stateHash": "157a3c6ca0326f6fa2798a2b246a73416bec1d286274f462621ea918542b274c"
+  },
+  "buildArtifacts": {
+    "manifestSha256": "f7e58da1972dd6ef1f6e175e64817ab728188b034155c47f3e1d364b80d1d26e",
+    "modelSha256": "6334eb01e488a9be9e2efda0ac1e4ebe5df177abb269d053d4d59fedb58e7d9a"
+  },
+  "exportAlgorithm": {
+    "version": 1,
+    "bootstrapSha256": "17d74fd12177a3ef23a9484569d4c85fbf2d5ac6836f6cbd4380a6b87c4a48a2"
+  },
+  "sourceHashes": {
+    "merged/merged": "0b2efd4dbced907b4e878466c3157cd6b7e1e7be45e378603db40cb52ab69ba1",
+    "pendant/pendant": "7da323b177f29f109d4da396e569b2c893ed8b0d76537d8d8bdd656a4e07c5c2"
+  },
+  "assetHashes": {},
+  "shapeHashes": {
+    "border": "0f773a64642bc37521a4415ce1323c53beac29535c7d4c848261319809edb12d",
+    "hangzhou": "ffd772d7865cec2fead4fcde6e9c556380911a8a5cc1c39348fca020d83a2ebf",
+    "merged": "c51c858574c27ab9186ef9cd23786e9c23c3910e228ebbe1ca50edeb9018f5d3",
+    "pendant": "ae89990674b9fca3b5c459c281d42c8b6a6c3af339c297334d4a6f233be64025",
+    "rdstr": "e07c9644dce3533b08e9e029b3d71705086f1e71deeecc9177174dea28cc9f90"
+  },
+  "runtime": {
+    "manifestHash": "f2257261a83c6a6a7ad9af6d3614075bafcf0f806976768abe0808de0c85df46",
+    "pythonVersion": "3.12.13",
+    "build123dVersion": "0.10.0",
+    "ocpVersion": "7.8.1.1.post1",
+    "cadpyHash": "58bddc5d0b7355753f7532dfe8fd6fd15f9010d9bfc58d97c1f79558c24aea50"
+  },
+  "artifacts": [
+    {
+      "path": "manufacturing/roadster-pendant/releases/export-af02d7544c5fb57e10f8e121f15ecdc9/model.step",
+      "role": "model/step",
+      "sha256": "0bc6d7ebe8fe020b014bd996a77fedcf74702e1ff159f681cd615fbe8e1f59b8",
+      "sizeBytes": 5947392
+    }
+  ],
+  "interference": {
+    "summary": "No interference across 10 object pairs.",
+    "counts": {
+      "objects": 5,
+      "pairs": 10,
+      "exact": 0,
+      "mesh": 0,
+      "cached": 5,
+      "interference": 0,
+      "undeclared": 0,
+      "over_budget": 0,
+      "undetermined": 0
+    },
+    "overlaps": []
+  },
+  "authority": {
+    "version": 1,
+    "algorithm": "hmac-sha256",
+    "keyId": "c86247e4b3cd5585b99b9ab9e9bbb609",
+    "projectId": "46ba5705-e337-4cb5-a276-63df93987ec4",
+    "receiptPath": "manufacturing/roadster-pendant/releases/export-af02d7544c5fb57e10f8e121f15ecdc9/receipt.json",
+    "payloadSha256": "7ff0191d03decd825a70d10ca606bda1e2c664e2ca568e8414b319f36390fefe",
+    "mac": "ffd96e715c8761d74403881a3db270e128ea06c14f905f094655ffd7a00dbcf7"
+  },
+  "status": "handoff"
+}

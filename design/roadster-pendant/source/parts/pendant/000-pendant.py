@@ -6,17 +6,27 @@ corner = param('pendant_corner_radius', 3.0)
 relief = param('pendant_relief_height', 0.6)
 text_top_round = param('pendant_text_top_edge_radius', 0.45)
 border_inset = param('pendant_border_inset', 0.7)
+border_color_width = param('pendant_border_color_width', 0.7)
+border_color_depth = param('pendant_border_color_depth', 0.6)
 groove_depth = param('pendant_groove_depth', 0.45)
 outer_radius = param('pendant_groove_outer_radius', 0.35)
 bottom_radius = param('pendant_groove_bottom_radius', 0.45)
 inner_radius = param('pendant_groove_inner_radius', 1.2)
 text_width = param('pendant_text_width', 42.14)
 text_height = param('pendant_text_height', 15.5)
+text_y = param('pendant_text_center_y', -3.8)
+header_height = param('pendant_header_height', 5.5)
+header_y = param('pendant_header_center_y', 9.6)
+header_relief = param('pendant_header_relief_height', 0.4)
 letter_gap = param('pendant_letter_gap', 0.8379121789560895)
 eye_od = param('pendant_eye_outer_diameter', 10.0)
 eye_id = param('pendant_cord_hole_diameter', 4.0)
 eye_offset = param('pendant_eye_outward_offset', 2.0)
 eye_root_radius = param('pendant_eye_root_radius', 2.0)
+recess_diameter = param('pendant_corner_recess_diameter', 1.8)
+recess_depth = param('pendant_corner_recess_depth', 0.5)
+recess_x = param('pendant_corner_recess_center_x', 26.0)
+recess_y = param('pendant_corner_recess_center_y', 13.5)
 # One integral plate, R3 plan corners, and left cord eye.
 eye_x = -length/2-eye_offset
 outline = RectangleRounded(length, height, corner) + Pos(eye_x,0)*Circle(eye_od/2)
@@ -73,6 +83,16 @@ profile_edges += [
 ]
 groove_cutter = sweep(Face(Wire(profile_edges)), path=path_wire, is_frenet=False)
 body = body-groove_cutter
+# Cosmetic flat-bottom blind holes, mirrored from the user's upper-left mark.
+# Mark centre is approximately (-26,13.5,3.5); diameter is a disclosed default.
+recess_centers = [(sx*recess_x,sy*recess_y) for sx in (-1,1) for sy in (-1,1)]
+assert 0 < recess_depth < thickness
+assert recess_x+recess_diameter/2 < length/2-border_inset-groove_width
+assert recess_y+recess_diameter/2 < height/2-border_inset-groove_width
+for x,y in recess_centers:
+ body = body-Pos(x,y,thickness-recess_depth)*Cylinder(recess_diameter/2,recess_depth,align=(Align.CENTER,Align.CENTER,Align.MIN))
+print('Four blind holes:',recess_centers,'diameter/depth mm:',recess_diameter,recess_depth,
+ 'remaining floor mm:',thickness-recess_depth)
 
 # rdstr_lettering: user supplied 1774x887 black-on-white image.
 # Outlines are redrawn in source-pixel coordinates; shading is not part of the silhouette.
@@ -133,14 +153,18 @@ source_gaps = [22,35,17,22]
 glyph_scale = (text_width-4*letter_gap)/1111
 cursor = -text_width/2
 glyph_bounds = []
+glyph_solids = []
 for i,(outer,inner,source_width,layout_width) in enumerate(glyph_outlines):
  gw = layout_width*glyph_scale
  glyph = outline_face(outer,source_width,gw)
  if inner is not None:
   glyph = glyph-outline_face(inner,source_width,gw)
- raised = Pos(cursor,0,thickness)*extrude(glyph,amount=relief,dir=(0,0,1))
+ raised = Pos(cursor,text_y,thickness)*extrude(glyph,amount=relief,dir=(0,0,1))
  glyph_bounds.append(raised.bounding_box())
- body = body+raised
+ top_z = thickness+relief
+ top_edges = [e for e in raised.edges()
+  if abs(e.bounding_box().min.Z-top_z)<1e-6 and abs(e.bounding_box().max.Z-top_z)<1e-6]
+ glyph_solids.append(fillet(top_edges,radius=text_top_round).solids()[0])
  cursor += gw
  if i<4:
   cursor += source_gaps[i]/24*letter_gap
@@ -149,18 +173,57 @@ actual_text_height = max(b.max.Y for b in glyph_bounds)-min(b.min.Y for b in gly
 assert abs(actual_text_width-text_width)<1e-5
 assert abs(actual_text_height-text_height)<1e-5
 print('Measured lettering footprint mm:',actual_text_width,actual_text_height)
-# All unions are complete; soften only the upper perimeters of the embossed letters.
-top_z = thickness+relief
-top_edges = [edge for edge in body.edges()
- if abs(edge.bounding_box().min.Z-top_z)<1e-6 and abs(edge.bounding_box().max.Z-top_z)<1e-6]
-assert len(top_edges)>0
-print('Text nominal footprint width mm:', text_width)
-print('Letter top-edge radius mm:', text_top_round, 'selected edges:', len(top_edges))
-pendant = fillet(top_edges, radius=text_top_round)
-pendant.color = srgb('#bfc1c4')
-assert len(pendant.solids()) == 1, 'Pendant must be one connected solid'
-assert pendant.is_valid, 'Invalid pendant boundary representation'
-print('Overall mm:',pendant.bounding_box().size)
-print('R3 outer corners:',corner,'groove depth:',groove_depth,'groove width:',groove_width)
-print('Circular groove radii: outer',outer_radius,'bottom',bottom_radius,'inner',inner_radius)
-publish('pendant',pendant,'RDSTR 车牌挂坠',material='petg')
+# Script heading: inclined brush lettering, matching the supplied California style.
+# Exact available font face; fail rather than silently use a sans-serif fallback.
+script_font = 'Brush Script MT Italic'
+assert script_font in [f.name for f in available_fonts()], 'Brush script font is required'
+header_sketch = Text('Hangzhou',10,font=script_font)
+header_sketch = header_sketch.scale(header_height/header_sketch.bounding_box().size.Y)
+hb = header_sketch.bounding_box()
+header_sketch = Pos(-(hb.min.X+hb.max.X)/2,header_y-(hb.min.Y+hb.max.Y)/2)*header_sketch
+header_raw = Pos(0,0,thickness)*extrude(header_sketch,amount=header_relief)
+header_solids = list(header_raw.solids())
+# Four non-overlapping material objects, all co-printed on the plate.
+assert 0 < border_color_width <= border_inset
+assert 0 < border_color_depth < thickness
+border_profile = (RectangleRounded(length,height,corner)
+ - RectangleRounded(length-2*border_color_width,height-2*border_color_width,corner-border_color_width))
+border = (Pos(0,0,thickness-border_color_depth)*extrude(border_profile,amount=border_color_depth)).solids()[0]
+silver_body = (body-border).solids()[0]
+navy = srgb('#17365d')
+red = srgb('#d51f2a')
+silver_body.color = srgb('#bfc1c4')
+border.color = navy
+for glyph in glyph_solids:
+ glyph.color = navy
+for glyph in header_solids:
+ glyph.color = red
+rdstr = Compound(children=glyph_solids)
+rdstr.color = navy
+hangzhou = Compound(children=header_solids)
+hangzhou.color = red
+combined = silver_body+border
+for glyph in glyph_solids+header_solids:
+ combined = combined+glyph
+assert len(combined.solids())==1 and combined.is_valid, 'Co-printed pendant must be continuous'
+assert all(g.is_valid for g in [silver_body,border]+glyph_solids+header_solids)
+summed_volume = silver_body.volume+border.volume+sum(s.volume for s in glyph_solids+header_solids)
+assert abs(summed_volume-combined.volume)<1e-5, 'Material regions must not overlap'
+main_top = max(b.max.Y for b in glyph_bounds)
+header_bottom = header_sketch.bounding_box().min.Y
+assert header_bottom>main_top, 'Two text rows must remain separated'
+field_hx = length/2-border_inset-groove_width
+field_hy = height/2-border_inset-groove_width
+assert max(abs(header_sketch.bounding_box().min.X),abs(header_sketch.bounding_box().max.X))<field_hx
+assert header_sketch.bounding_box().max.Y<field_hy
+print('RDSTR size mm:',actual_text_width,actual_text_height,'center Y:',text_y)
+print('Hangzhou size mm:',header_sketch.bounding_box().size,'center Y:',header_y)
+print('Row gap mm:',header_bottom-main_top)
+print('Inner-field clearances mm: LR',(length-actual_text_width)/2-border_inset-groove_width,
+ 'bottom',min(b.min.Y for b in glyph_bounds)+field_hy,
+ 'header top',field_hy-header_sketch.bounding_box().max.Y)
+print('Overall mm:',combined.bounding_box().size,'connected solids:',len(combined.solids()))
+publish('pendant',silver_body,'银灰车牌主体',material='petg')
+publish('border',border,'深蓝车牌细边',material='petg')
+publish('rdstr',rdstr,'深蓝 RDSTR',material='petg')
+publish('hangzhou',hangzhou,'红色手写 Hangzhou',material='petg')

@@ -1,12 +1,17 @@
 {
   "formatVersion": 4,
   "name": "Roadster 挂坠",
-  "summary": "将特斯拉 Roadster 的车牌收入囊中",
+  "title": "加州车牌",
+  "summary": "加州车牌小挂坠",
   "license": "MIT",
   "authors": [
     {
       "name": "Miles"
     }
   ],
+  "upstream": {
+    "repo": "https://github.com/Joshua2046c/Roadster",
+    "commit": "933eba36e77c9c6d710710cdeaccf29b45ea7c44"
+  },
   "artifacts": "rebuild"
 }

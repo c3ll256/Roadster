@@ -2,38 +2,17 @@
   "schemaVersion": 1,
   "entries": [
     {
-      "file": "uploads/20261020T083242806Z-1-ishot-2026-10-20-4-27-20.png",
-      "sha256": "cb006a1879ba580d743fe504887865b13a5f0c3e68c51280f2342b3b181f01fd",
-      "bytes": 13079,
-      "addedAt": "2026-10-20T08:32:43.021Z",
+      "file": "uploads/20261022T102544886Z-1-cleanshot-2026-10-22-at-18-24-40-2x.png",
+      "sha256": "890ba45eb964d46e5498eac8f2e053fc9892fda5517610e05d904f02a72265b5",
+      "bytes": 158278,
+      "addedAt": "2026-10-22T10:25:50.046Z",
       "share": false
     },
     {
-      "file": "uploads/20261020T083242806Z-2-ishot-2026-10-20-4-27-36.png",
-      "sha256": "a10ff98d16e7a42eba7b3ed76f2ac8ac81c0babad10fd56e35a074ce094d0d05",
-      "bytes": 18238,
-      "addedAt": "2026-10-20T08:32:43.021Z",
-      "share": false
-    },
-    {
-      "file": "uploads/20261020T085619022Z-1-rdstr.png",
-      "sha256": "46f929f46b09edc67b57ac12330ea380d2eadfa0d80801d57e46e076c6daf03b",
-      "bytes": 1076829,
-      "addedAt": "2026-10-20T08:56:25.151Z",
-      "share": false
-    },
-    {
-      "file": "uploads/20261020T152132223Z-1-image.png",
-      "sha256": "287cbd485655b2122182fd5938345d5de931dcabb62577319df30ab0e307973f",
-      "bytes": 17002,
-      "addedAt": "2026-10-20T15:21:44.023Z",
-      "share": false
-    },
-    {
-      "file": "uploads/20261020T161731756Z-1-mark-1.png",
-      "sha256": "1f336f211cb8a0b577037bfbda762857c86e838f8ba85b58667b6be0ec9e8da8",
-      "bytes": 107770,
-      "addedAt": "2026-10-20T16:17:35.863Z",
+      "file": "uploads/20261022T103154939Z-1-mark-1.png",
+      "sha256": "68798801e49ceb0832605c412c8ca7f68183ff6e08debdf7f66af48bcc5471b5",
+      "bytes": 335349,
+      "addedAt": "2026-10-22T10:31:59.615Z",
       "share": false
     }
   ]

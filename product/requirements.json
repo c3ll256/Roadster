@@ -81,7 +81,7 @@
       "source": "default"
     },
     "lettering_width_mm": {
-      "value": 42.14,
+      "value": 33.712,
       "source": "default"
     },
     "lettering_top_edges_softened": {
@@ -106,9 +106,11 @@
     },
     "lettering_frame_spacing_mm": {
       "value": {
-        "left_right": 12.38,
-        "top_bottom": 8.7,
-        "measurement": "文字底部轮廓包络到凹槽内侧平面边界的水平及竖直净距"
+        "left_right": 16.592,
+        "bottom": 6.448,
+        "top_header": 4.073,
+        "between_rows": 2.825,
+        "measurement": "两行文字轮廓包络至凹槽内侧平面边界，按水平及竖直方向计算"
       },
       "source": "default"
     },
@@ -130,6 +132,131 @@
     },
     "cord_eye_root_radius_mm": {
       "value": 2,
+      "source": "default"
+    },
+    "border_contrast": {
+      "value": "仿真车牌样式，外沿一圈使用与牌面不同的颜色",
+      "source": "user"
+    },
+    "border_color": {
+      "value": "深蓝色",
+      "source": "user"
+    },
+    "border_color_band_width_mm": {
+      "value": 0.7,
+      "source": "default"
+    },
+    "border_color_region_depth_mm": {
+      "value": 0.6,
+      "source": "default"
+    },
+    "lettering_size_adjustment": {
+      "value": "缩小原RDSTR字组",
+      "source": "user"
+    },
+    "lettering_height_mm": {
+      "value": 12.4,
+      "source": "default"
+    },
+    "lettering_center_y_mm": {
+      "value": -3.8,
+      "source": "default"
+    },
+    "lettering_color": {
+      "value": "深蓝色",
+      "source": "user"
+    },
+    "deep_blue_srgb": {
+      "value": "#17365D",
+      "source": "default"
+    },
+    "header_text": {
+      "value": "Hangzhou",
+      "source": "user"
+    },
+    "header_style": {
+      "value": "参考所附California红色连笔图，采用倾斜笔刷手写体，置于RDSTR上方",
+      "source": "user"
+    },
+    "header_color": {
+      "value": "红色",
+      "source": "user"
+    },
+    "header_red_srgb": {
+      "value": "#D51F2A",
+      "source": "default"
+    },
+    "header_height_mm": {
+      "value": 7.15,
+      "source": "user"
+    },
+    "header_center_y_mm": {
+      "value": 8.8,
+      "source": "user"
+    },
+    "header_relief_height_mm": {
+      "value": 0.4,
+      "source": "default"
+    },
+    "header_font": {
+      "value": "Brush Script MT Italic",
+      "source": "default"
+    },
+    "header_reference": {
+      "value": "product/references/uploads/20261022T102544886Z-1-cleanshot-2026-10-22-at-18-24-40-2x.png",
+      "source": "user"
+    },
+    "corner_recesses": {
+      "value": "按标注位置，对称四角设置圆形盲孔",
+      "source": "user"
+    },
+    "corner_recess_depth_mm": {
+      "value": 0.5,
+      "source": "user"
+    },
+    "corner_recess_diameter_mm": {
+      "value": 1.8,
+      "source": "default"
+    },
+    "corner_recess_centers_mm": {
+      "value": [
+        [
+          -26,
+          13.5
+        ],
+        [
+          26,
+          13.5
+        ],
+        [
+          -26,
+          -13.5
+        ],
+        [
+          26,
+          -13.5
+        ]
+      ],
+      "source": "default"
+    },
+    "corner_recess_reference": {
+      "value": "product/references/uploads/20261022T103154939Z-1-mark-1.png",
+      "source": "user"
+    },
+    "merged_copy": {
+      "value": "保留现有分色版本，另提供所有部件布尔合并为一个整体的版本，放在旁边",
+      "source": "user"
+    },
+    "merged_copy_offset_mm": {
+      "value": [
+        90,
+        0,
+        0
+      ],
+      "source": "default"
+    },
+    "merged_copy_preview_color": {
+      "value": "银灰 #BFC1C4；三色外观保留在原分色版本",
       "source": "default"
     }
   },
